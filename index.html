@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Home Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #1e4d6d;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            margin-bottom: 0;
+            font-size: 18px;
+        }
+
+        .header img {
+            max-width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .main-content {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .notice-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            margin-top: 20px; /* Added margin-top */
+        }
+
+        .footer {
+            background-color: #1e4d6d;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .btn-banking {
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-right: 10px;
+        }
+
+        .btn-banking:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Welcome to Our Bank</h1>
+            <p>Your trusted partner in financial solutions</p>
+        </div>
+        <!-- Random banking image from Unsplash -->
+        <img src="https://source.unsplash.com/1600x900/?banking" alt="Banking Image">
+    </header>
+    <div class="main-content">
+        <div class="container">
+            <a href="http://3.111.128.77:5000/login" class="btn btn-primary btn-banking">Internet Banking Login</a>
+            <a href="http://3.111.128.77:5000/register" class="btn btn-success btn-banking">Internet Banking Registration</a>
+            <a href="http://3.111.128.77:5000/employee_login" class="btn btn-info btn-banking">Employee Login</a>
+            <a href="http://15.207.238.88:5000" class="btn btn-warning btn-banking">Support</a>
+            <button class="btn btn-secondary btn-banking" onclick="openKYC()">KYC</button>
+            <a href="http://3.111.63.211/bankops/register.html" class="btn btn-primary btn-banking">Apply for Account</a>
+            <!-- Dummy notice from the bank -->
+            <div class="notice-container">
+                <h2>Important Notice</h2>
+                <p>This sandbox banking website is for educational purposes only. No real financial transactions should be attempted.</p>
+                <p>All activities within this platform are simulated and have no real-world implications.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Our Bank. All rights reserved. | Providing secure banking solutions since 19XX</p>
+        </div>
+    </footer>
+</body>
+</html>

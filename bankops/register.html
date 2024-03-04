@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure the page fills the viewport height */
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group select {
+            width: 100%; /* Adjusted width */
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus,
+        .form-group input[type="tel"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23555" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 24px;
+            padding-right: 32px;
+        }
+
+        .form-group input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Apply For An Account</h2>
+        <form action="register.php" method="post">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="USA">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="India">India</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="id_details_container">
+                <label for="id_details">ID Details</label>
+                <input type="text" id="id_details" name="id_details">
+            </div>
+
+            <div class="form-group" id="pan_card_container" style="display: none;">
+                <label for="pan_card">PAN Card</label>
+                <input type="text" id="pan_card" name="pan_card">
+            </div>
+
+            <div class="form-group" id="national_id_container" style="display: none;">
+                <label for="national_id">National ID</label>
+                <input type="text" id="national_id" name="national_id">
+            </div>
+
+            <div class="form-group" id="ssn_container" style="display: none;">
+                <label for="ssn">Social Security Number (SSN)</label>
+                <input type="text" id="ssn" name="ssn">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address">
+            </div>
+
+            <div class="form-group">
+                <label for="zip_code">Zip Code</label>
+                <input type="text" id="zip_code" name="zip_code">
+            </div>
+
+            <div class="form-group" id="account_type_container">
+                <label for="account_type">Account Type</label>
+                <select id="account_type" name="account_type">
+                    <option value="savings">Savings Account</option>
+                    <option value="checking">Checking Account</option>
+                    <option value="current">Current Account</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var countrySelect = document.getElementById('country');
+            var idDetailsContainer = document.getElementById('id_details_container');
+            var panCardContainer = document.getElementById('pan_card_container');
+            var nationalIdContainer = document.getElementById('national_id_container');
+            var ssnContainer = document.getElementById('ssn_container');
+
+            countrySelect.addEventListener('change', function() {
+                var selectedCountry = countrySelect.value;
+
+                idDetailsContainer.style.display = 'none';
+                panCardContainer.style.display = 'none';
+                nationalIdContainer.style.display = 'none';
+                ssnContainer.style.display = 'none';
+
+                if (selectedCountry === 'UK') {
+                    nationalIdContainer.style.display = 'block';
+                } else if (selectedCountry === 'USA') {
+                    ssnContainer.style.display = 'block';
+                } else if (selectedCountry === 'India') {
+                    panCardContainer.style.display = 'block';
+                } else {
+                    idDetailsContainer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
