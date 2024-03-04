@@ -1,0 +1,33 @@
+<!-- templates/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="dashboard-container">
+        <h1>Welcome, {{ user.name }}</h1>
+        <p>Account ID: {{ user.id }}</p>
+        <p>Bank Account Number: XXXX-XXXX-XXXX-1234</p>
+        <p>Routing Number: XXXXXXXX</p>
+        <p>Resident Country: United States</p>
+        <p>Account Balance: ${{ user.balance }}</p>
+        <form action="/logout" method="post">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .dashboard-container {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+        }
+    </style>
+{% endblock %}

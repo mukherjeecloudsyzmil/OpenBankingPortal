@@ -1,0 +1,42 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Wallet Dashboard</h1>
+    <table border="1">
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Deposit</th>
+            <th>Withdraw</th>
+        </tr>
+        {% for user_id, user in users.items() %}
+        <tr>
+            <td>{{ user_id }}</td>
+            <td>{{ user['name'] }}</td>
+            <td>{{ user['balance'] }}</td>
+            <td>
+                <form action="/deposit" method="post">
+                    <input type="hidden" name="user_id" value="{{ user_id }}">
+                    <input type="number" step="0.01" name="amount" required>
+                    <input type="submit" value="Deposit">
+                </form>
+            </td>
+            <td>
+                <form action="/withdraw" method="post">
+                    <input type="hidden" name="user_id" value="{{ user_id }}">
+                    <input type="number" step="0.01" name="amount" required>
+                    <input type="submit" value="Withdraw">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
